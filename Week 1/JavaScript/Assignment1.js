@@ -26,7 +26,8 @@ function canVote(users){
             result.push(users[i].name);
         }
     }
-    return result;
+    // return result;
+    return users.filter(user => user.age > 18);
 }
 
 console.log(canVote(users));
