@@ -76,11 +76,34 @@ function print(err, data){
 }
 
 
-fs.readFile("data.txt", "utf-8", print);
-console.log("Done!");
+// fs.readFile("data.txt", "utf-8", print);
+// console.log("Done!");
 
 // setTimeout(()=>{
 //   console.log("Done!");
 // }, 5000);
 
 // here the print method is a callback function.
+
+/*
+  Important Points:
+  1. I/O heavy tasks take more time to execute than CPU bound tasks.
+  2. Callback functions are used to handle asyncronous tasks.
+
+*/
+
+
+console.log("Start");
+
+function timer(){
+  console.log("Finish");
+}
+
+setTimeout(timer, 1000);
+let c= 0;
+for(let i = 0; i< 100000000; i++){
+  c++;
+}
+console.log("CPU Bound Task Done ", c);
+
+
