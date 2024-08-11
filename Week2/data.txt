@@ -1,0 +1,2 @@
+Hello there!
+we are learning I/O operations in JavaScript.
