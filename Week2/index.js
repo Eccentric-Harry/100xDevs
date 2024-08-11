@@ -6,12 +6,12 @@ function sum(a,b){
     return a+b;
 }
 let ans = sum(2,3)
-console.log(ans);
+// console.log(ans);
 
 function sum1ToN(n){
     return n*(n+1)/2
 }
-console.log(sum1ToN(10));
+// console.log(sum1ToN(10));
 
 
 // what is Syncronous and Asyncronous
@@ -21,8 +21,9 @@ console.log(sum1ToN(10));
 // Understanding I/O heavy tasks
 // 1. Reading a file
 const fs = require('fs');
+const { setTimeout } = require('timers/promises');
 let data = fs.readFileSync('data.txt','utf-8');
-console.log(data);
+// console.log(data);
 
 // 2. CPU bound tasks
 
@@ -33,7 +34,7 @@ for(let i=0;i<1000000000;i++){
 // Let's understand the importance of doing tasks asyncronous 
 
 fs.readFile('data.txt','utf-8',(err,data)=>{
-    console.log(data);
+    // console.log(data);
 })
 
 
@@ -59,5 +60,27 @@ function sum(a, b) {
     return op(a, b)
   }
   
-  console.log(doOperation(1, 2, sum))
+  // console.log(doOperation(1, 2, sum))
   
+
+
+// Now let's us understand the concept of callback functions and Asynchronous nature of JavaScript;
+
+function print(err, data){
+  if(err){
+    console.log(err);
+    return;
+  }
+  else
+    console.log(data);
+}
+
+
+fs.readFile("data.txt", "utf-8", print);
+console.log("Done!");
+
+// setTimeout(()=>{
+//   console.log("Done!");
+// }, 5000);
+
+// here the print method is a callback function.
